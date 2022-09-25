@@ -39,5 +39,5 @@ for i in range(len(text)):
 
 print(res)
 
-# Cách 2 nhanh hơn cách 1 gấp một hằng số ( hình như là 4).
+# Cách 2 nhanh hơn cách 1 gấp một hằng số (hình như là 4).
 # Có thể thấy không phải lúc nào QHĐ cũng tốt hơn duyệt.
