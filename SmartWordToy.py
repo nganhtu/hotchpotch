@@ -7,7 +7,7 @@ honkai = (("z", "a", "a", "a"), ("a", "z", "a", "a"), ("a", "a", "z", "a"), ("a"
           ("a", "z", "z", "z"), ("z", "a", "z", "z"), ("z", "z", "a", "z"), ("z", "z", "z", "a"))
 
 
-def isValid(str):
+def is_valid(str):
     for strict in honkai:
         for i in range(4):
             if strict[i].find(str[i]) == -1:
@@ -38,7 +38,7 @@ def count_step():
         passed.append(str)
         adjacents = get_adjacent(str)
         for adj in adjacents:
-            if adj not in passed and isValid(adj):
+            if adj not in passed and is_valid(adj):
                 queue.append([adj, step + 1])
 
 
