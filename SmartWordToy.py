@@ -28,20 +28,18 @@ def get_adjacent(str):
 
 
 def count_step():
-    queue = [origin]
+    queue = [[origin, 0]]
     passed = []
-    step = 0
     while len(queue) > 0:
-        str = queue.pop(0)
-        ic('checking~', len(passed), str)
+        str, step = queue.pop(0)
+        ic('checking~', len(passed), step, str)
         if str == finality:
             return step
         passed.append(str)
         adjacents = get_adjacent(str)
         for adj in adjacents:
             if adj not in passed and isValid(adj):
-                queue.append(adj)
-        step += 1
+                queue.append([adj, step + 1])
 
 
 ic(count_step())
