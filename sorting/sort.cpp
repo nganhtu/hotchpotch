@@ -16,31 +16,33 @@ void bubbleSort() {
 }
 
 void selectionSort() {
-    for (int i = 0; i < n - 1; ++i) {
-        int min = INT_MAX, pos = -1;
-        for (int j = i + 1; j < n; ++j) {
-            if (a[j] < min) {
-                min = a[j];
-                pos = j;
+    for (int i = 0; i < n; ++i) {
+        int rec = INT_MAX, idx = -1;
+        for (int j = i; j < n; ++j) {
+            if (a[j] < rec) {
+                rec = a[j];
+                idx = j;
             }
         }
-        if (a[i] > a[pos]) {
-            std::swap(a[i], a[pos]);
+        int tmp = a[idx];
+        for (int j = idx; j > i; --j) {
+            a[j] = a[j - 1];
         }
+        a[i] = tmp;
     }
 }
 
 void insertionSort() {
     for (int i = 1; i < n; ++i) {
-        int j = i;
-        while (j > 0 && a[j - 1] > a[i]) {
-            --j;
+        int track = 0;
+        while (a[track + 1] <= a[i]) {
+            track++;
         }
         int tmp = a[i];
-        for (int k = i; k > j; --k) {
-            a[k] = a[k - 1];
+        for (int j = i; j > track; --j) {
+            a[j] = a[j - 1];
         }
-        a[j] = tmp;
+        a[track] = tmp;
     }
 }
 
@@ -138,7 +140,7 @@ void printArray() {
 
 int main() {
     printArray();
-    selectionSort();
+    radixSort();
     printArray();
 
     return 0;
